@@ -7,7 +7,7 @@ const DEBUG_MODE = true;
 document.addEventListener('DOMContentLoaded', () => {
   const targetElement = document.body;
 
-  if (navigator.hardwareConcurrency > HARDWARE_CONCURRENCY_THRESHOLD || DEBUG_MODE) {
+  if (DEBUG_MODE || navigator.hardwareConcurrency > HARDWARE_CONCURRENCY_THRESHOLD ) {
     // Initialize MutationObserver for high-concurrency devices
     const highConcurrencyObserver = new MutationObserver(mutations => {
       mutations.forEach(mutation => {
