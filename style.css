@@ -1099,6 +1099,9 @@ section>*, section> ul{
   display: flex;
   gap: 1rem;
 }
+.footer_contact-message{
+  max-width: 30ch;
+}
 @media screen and (min-width: 798px) {
   .footer_flex{
     flex-direction: row;
