@@ -4,7 +4,7 @@ const OBSERVER_THRESHOLD = .8;
 const STAGGER_DELAY_SECONDS = .1; // 200ms between each element
 const DEBUG_MODE = true;
 
-import { injectSpeedInsights } from "@vercel/speed-insights"
+import { injectSpeedInsights } from "@vercel/speed-insights";
 
 document.addEventListener('DOMContentLoaded', () => {
   const targetElement = document.body;
