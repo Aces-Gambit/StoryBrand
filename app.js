@@ -2,11 +2,12 @@
 const HARDWARE_CONCURRENCY_THRESHOLD = 4;
 const OBSERVER_THRESHOLD = .8;
 const STAGGER_DELAY_SECONDS = .1; // 200ms between each element
+const DEBUG_MODE = true;
 
 document.addEventListener('DOMContentLoaded', () => {
   const targetElement = document.body;
 
-  if (navigator.hardwareConcurrency > HARDWARE_CONCURRENCY_THRESHOLD) {
+  if (navigator.hardwareConcurrency > HARDWARE_CONCURRENCY_THRESHOLD || DEBUG_MODE) {
     // Initialize MutationObserver for high-concurrency devices
     const highConcurrencyObserver = new MutationObserver(mutations => {
       mutations.forEach(mutation => {
