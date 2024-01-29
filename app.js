@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+});
 
 function observeElement(el) {
   const observer = new IntersectionObserver((entries, observer) => {
