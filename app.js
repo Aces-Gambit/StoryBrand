@@ -43,9 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navigator.hardwareConcurrency > HARDWARE_CONCURRENCY_THRESHOLD) {
       observeElement(el);
     } else {
-      el.classList.add('no-animation');
+        if (el.hasAttribute('data-enter-stagger')) {
+          // Apply no-animation to each child of the parent with data-enter-stagger
+          Array.from(el.children).forEach(child => {
+            child.classList.add('no-animation');
+          });
+        } else {
+          // Apply no-animation directly for elements with data-enter or data-enter-text
+          el.classList.add('no-animation');
+        }
     }
-  });
 });
 
 function observeElement(el) {
