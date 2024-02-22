@@ -58,6 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function observeElement(el) {
+  const viewportHeight = window.innerHeight;
+  const elementHeight = el.getBoundingClientRect().height;
+  let dynamicThreshold = OBSERVER_THRESHOLD;
+
+  if ((elementHeight * OBSERVER_THRESHOLD) > viewportHeight) {
+    dynamicThreshold = (viewportHeight * 0.5) / elementHeight;
+  }
+  
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -65,7 +73,7 @@ function observeElement(el) {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: OBSERVER_THRESHOLD });
+  }, { threshold: dynamicThreshold });
 
   observer.observe(el);
 }
